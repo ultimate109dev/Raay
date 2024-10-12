@@ -1,0 +1,14 @@
+name: Keep Codespace Alive
+
+on:
+  schedule:
+    # Lässt den Codespace alle 15 Minuten laufen
+    - cron: "*/15 * * * *"
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Keep-Alive Request
+        run: |
+          curl -I https://Raay109/Raay109 || true
